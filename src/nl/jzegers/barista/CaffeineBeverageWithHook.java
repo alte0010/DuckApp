@@ -1,4 +1,4 @@
-package nl.jzegers.duck;
+package nl.jzegers.barista;
 
 public abstract class CaffeineBeverageWithHook {
     final void prepareRecipe() {
@@ -11,13 +11,14 @@ public abstract class CaffeineBeverageWithHook {
     }
 
     abstract void brew();
+
     abstract void addCondiments();
 
-    public void boilWater() {
+    void boilWater() {
         System.out.println("Boiling water");
     }
 
-    public void pourInCup() {
+    void pourInCup() {
         System.out.println("Pouring into cup");
     }
 
