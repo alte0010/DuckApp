@@ -1,4 +1,4 @@
-package nl.jzegers.duck;
+package nl.jzegers.turkey;
 
 public class TurkeyAdapter implements Duck {
     Turkey turkey;
@@ -7,11 +7,11 @@ public class TurkeyAdapter implements Duck {
         this.turkey = turkey;
     }
 
-    public void quack() {
+    public void fly() {
         turkey.gobble();
     }
 
-    public void fly() {
+    public void quack() {
         for(int i=0; i < 5; i++) {
             turkey.fly();
         }

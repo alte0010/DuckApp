@@ -1,4 +1,4 @@
-package nl.jzegers.duck;
+package nl.jzegers.turkey;
 
 public class WildTurkey implements Turkey {
     public void gobble() {

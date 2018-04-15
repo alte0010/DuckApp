@@ -1,15 +1,15 @@
-package nl.jzegers.duck;
+package nl.jzegers.turkey;
 
 public class DuckTestDrive {
     public static void main(String[] args) {
-        MallardDuck duck = new MallardDuck();
+	    MallardDuck duck = new MallardDuck();
 
-        WildTurkey turkey = new WildTurkey();
-        Duck turkeyAdapter = new TurkeyAdapter(turkey);
+	    WildTurkey turkey = new WildTurkey();
+	    Duck turkeyAdapter = new TurkeyAdapter(turkey);
 
-        System.out.println("The Turkey says...");
-        turkey.gobble();
-        turkey.fly();
+	    System.out.println("The Turkey says...");
+	    turkey.gobble();
+	    turkey.fly();
 
         System.out.println("\nThe Duck says...");
         testDuck(duck);
@@ -19,7 +19,7 @@ public class DuckTestDrive {
     }
 
     static void testDuck(Duck duck) {
-        duck.quack();
         duck.fly();
+        duck.quack();
     }
 }
