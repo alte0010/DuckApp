@@ -3,7 +3,9 @@ package nl.jzegers.duck;
 public abstract class Duck {
     FlyBehavior flyBehavior;
     QuackBehavior quackBehavior;
+
     public Duck() {
+        //
     }
 
     public abstract void display();
@@ -16,15 +18,15 @@ public abstract class Duck {
         quackBehavior.quack();
     }
 
-    public void swim() {
-        System.out.println("All ducks float, even decoys!");
-    }
-
     public void setFlyBehavior(FlyBehavior fb) {
         flyBehavior = fb;
     }
 
     public void setQuackBehavior(QuackBehavior qb) {
         quackBehavior = qb;
+    }
+
+    public void swim() {
+        System.out.println("All ducks float, even decoys!");
     }
 }

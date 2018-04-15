@@ -2,8 +2,8 @@ package nl.jzegers.duck;
 
 public class MallardDuck extends Duck {
     public MallardDuck() {
-        quackBehavior = new Quack();
         flyBehavior = new FlyWithWings();
+        quackBehavior = new QuackQuack();
     }
 
     public void display() {
