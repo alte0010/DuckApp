@@ -1,51 +1,71 @@
 package nl.jzegers.bus;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Bus {
     private Driver driver;
-    private Person[] chairs = new Person[24];
+    private HashMap<String, Nameable> chairs = new HashMap<String, Nameable>();
 
     public Bus(Driver driver) {
         this.driver = driver;
     }
 
-    public void getIn(Person person1, Person person2, Person person3) {
-        getIn(person1);
-        getIn(person2);
-        getIn(person3);
+    public void getIn(Nameable nameable1, Nameable nameable2, Nameable nameable3) {
+        getIn(nameable1);
+        getIn(nameable2);
+        getIn(nameable3);
     }
 
-    public int freeSpace() {
-        for (int i = 0; i < chairs.length; i++) {
-            if (chairs[i] == null)
-                return i;
+    public void getIn(Nameable nameable) {
+        String key = nameable.getName();
+        Nameable value = nameable;
+        this.chairs.put(key, value);
+        showInfo(nameable, " is ingestapt");
+    }
+
+    public Nameable getOut(String name) {
+        if (!chairs.containsKey(name)) {
+            System.out.println(name + " zit niet in de bus");
+            return null;
         }
-        return -1;
+        Nameable deportedPerson = chairs.get(name);
+        chairs.remove(name);
+        showInfo(deportedPerson, " is uitgestapt");
+        return deportedPerson;
     }
 
-    public void getIn(Person person) {
-        if (freeSpace() == -1) {
-            System.out.println("De bus is vol, " + person.getName() + " moet gaan lopen.");
-            return;
-        }
-        this.chairs[freeSpace()] = person;
-        showInfo(person);
-    }
-
-    private void showInfo(Person person) {
-        System.out.println(person.getName() + " is ingestapt");
+    private void showInfo(Nameable nameable, String action) {
+        System.out.println(nameable.getName() + action);
     }
 
     private int getCount() {
-        int count = 0;
-        for (int i = 0; i < chairs.length; i++) {
-            Person currentChair = chairs[i];
-            if (currentChair != null)
-                count++;
+        return chairs.size();
+    }
+
+    public String[] getNames() {
+        String[] names = new String[getCount()];
+        int i = 0;
+        for (String key : chairs.keySet()) {
+            names[i] = key;
+            i++;
         }
-        return count;
+        return names;
+    }
+
+    public void info() {
+        System.out.println(this);
     }
 
     public String toString() {
-        return "Er zitten " + getCount() + " personen in de bus.";
+        return "Er zitten " + getCount() + " dingen in de bus.";
+    }
+
+    public void printNames() {
+        System.out.println("Deze wezens zitten in de bus:");
+        for(Map.Entry<String, Nameable> entry : chairs.entrySet()) {
+            String key = entry.getKey();
+            System.out.println("- "+key);
+        }
     }
 }

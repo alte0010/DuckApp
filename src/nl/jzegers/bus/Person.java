@@ -1,6 +1,6 @@
 package nl.jzegers.bus;
 
-public abstract class Person {
+public abstract class Person implements Nameable {
     private String name;
 
     public Person(String name) {

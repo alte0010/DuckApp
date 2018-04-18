@@ -7,8 +7,8 @@ public class Driver {
         this.name = name;
     }
 
-    public boolean areEqual(Dog dog, Cat cat) {
-        return dog.equals(cat);
+    public boolean areEqual(Dog dog1, Cat cat1) {
+        return dog1.equals(cat1);
     }
 
     public boolean areEqual(Dog dog1, Dog dog2) {
